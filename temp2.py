@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # URL of the page
-url = "https://www.houstonisd.org/site/UserControls/Minibase/MinibaseListWrapper.aspx?ModuleInstanceID=323603&PageModuleInstanceID=327729&PageIndex=1"
+url = "https://www.houstonisd.org//site/UserControls/Minibase/MinibaseListWrapper.aspx?ModuleInstanceID=317531&PageModuleInstanceID=329255&&PageIndex=1"
 
 # Send a GET request to the URL
 response = requests.get(url)

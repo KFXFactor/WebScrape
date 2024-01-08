@@ -4,8 +4,7 @@ from bs4 import BeautifulSoup
 from pathlib import Path
 
 # Define the base URL
-base_url = "https://www.houstonisd.org/site/UserControls/Minibase/MinibaseListWrapper.aspx?ModuleInstanceID=323603&PageModuleInstanceID=327729&PageIndex="
-
+base_url = "https://www.houstonisd.org//site/UserControls/Minibase/MinibaseListWrapper.aspx?ModuleInstanceID=317531&PageModuleInstanceID=329255&&PageIndex="
 # Define the CSV file path on the desktop
 desktop_path = Path.home() / "Desktop"
 csv_file_path = desktop_path / "output.csv"
@@ -16,16 +15,12 @@ with open(csv_file_path, 'w', newline='', encoding='utf-8') as csvfile:
 
     # Write the header row
     header = [
-        'Vendor Name', 'Vendor #', 'Sales Person', 'Vendor E-Mail Address',
-        'Vendor Phone Number', 'NIGP Code', 'NIGP Description', 'Project Number',
-        'Project Expiration Date', 'Project Description', 'Board Approval Date',
-        'Category Specialist', 'Category Specialist Email', 'Category Specialist Phone Number',
-        'Contract No.', 'Block Local Sourcing', 'Variance - Expiration Date'
+        "Name Search","Email","Phone","Location","Category","Title Search","Organizational Hierarchy Search"
     ]
     csv_writer.writerow(header)
 
     # Iterate through each page from 1 to 248
-    for page_index in range(1, 249):
+    for page_index in range(1, 5):
         # Construct the URL for the current page
         url = f"{base_url}{page_index}"
 
@@ -49,23 +44,13 @@ with open(csv_file_path, 'w', newline='', encoding='utf-8') as csvfile:
 
             # Write the extracted information to the CSV file
             csv_writer.writerow([
-                data.get('Vendor Name', ''),
-                data.get('Vendor #', ''),
-                data.get('Sales Person', ''),
-                data.get('Vendor E-Mail Address', ''),
-                data.get('Vendor Phone Number', ''),
-                data.get('NIGP Code', ''),
-                data.get('NIGP Description', ''),
-                data.get('Project Number', ''),
-                data.get('Project Expiration Date', ''),
-                data.get('Project Description', ''),
-                data.get('Board Approval Date', ''),
-                data.get('Category Specialist', ''),
-                data.get('Category Specialist Email', ''),
-                data.get('Category Specialist Phone Number', ''),
-                data.get('Contract No.', ''),
-                data.get('Block Local Sourcing', ''),
-                data.get('Variance - Expiration Date', '')
+                data.get('Name Search', ''),
+                data.get('Email', ''),
+                data.get('Phone', ''),
+                data.get('Location', ''),
+                data.get('Category', ''),
+                data.get('Title Search', ''),
+                data.get('Organizational Hierarchy Search', '')
             ])
 
 print(f"CSV file saved to: {csv_file_path}")
